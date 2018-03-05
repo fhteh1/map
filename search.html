@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE> Search Camera </TITLE>
+<META NAME="Cname" CONTENT="">
+
+</HEAD>
+<script>
+function submitToParent(){
+  var parent = window.opener;
+  var Cname = document.getElementById('Cname').value;
+  parent.findmarker(Cname);
+//  parent.document.getElementById('CameraLocation').value = Lname;
+//  parent.document.getElementById('CameraX').value = Lx;
+//  alert(2);
+//  parent.document.getElementById('CameraY').value = Ly;
+//opener.document.all.navermapver.value = document.all.mapadd.value;
+window.close();
+}
+
+function init(){
+//받는값변수 = opener.document.forms.폼이름.필드이름.value
+ document.all.mapadd.value = opener.document.all.navermapver.value;  //= opener.document.forms.폼이름.필드이름.value
+}
+
+</script>
+<BODY onLoad="init();">
+<label for="Cname">Camera Name</label>
+<input type="text" name="Cname" id="Cname">
+<hr>
+<input type="button" value="Search Camera" onClick="submitToParent()">
+
+</BODY>

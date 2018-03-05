@@ -1,0 +1,77 @@
+*************** 로그인 ***************
+[start]   phpjs/login.php
+1. if($row['attribution']=="manager") > welcome.php
+2. else                               > welcomeuser.php
+
+
+
+*************** 로그아웃 ***************
+welcom.php / welcomeuser.php (=map) > logout.php > login.php
+
+
+
+*************** 회원가입 ***************
+login.php > (window.open)join.php > Database insert > window close
+
+
+
+*************** 데이터베이스 ***************
+Database Bitnami wampstack-7.1.9-0
+1.
+Database name = maplogin;
+
+CREATE TABLE `login` (
+  `id` varchar(30) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `attribution` varchar(20) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `login` (`id`, `password`, `name`, `email`, `attribution`) VALUES('root', 'foroot', 'rootname', 'fhteh1@gbudatalinks.com', 'manager');
+
+
+
+*************** 파일 설명 ***************
+1. dbconnection.php
+for Database connect
+
+2. join. php
+for member join
+id , password, confirm password, username, e-mail
+
+3. login.css
+login.php, join.php 's css file
+
+4. login.php
+login page, if user is manager, go to welcome.php page, else(user=user) go to welcomeuser.php
+
+5. logout.php
+Click logout link, go to this page and session_destroy
+
+6. mapadd2.php
+[카메라 추가]button > map add
+
+7. search.php
+[카메라 검색]>button > search camera with Name
+
+8. welcome.php
+[전체 카메라 열기] [전체 카메라 닫기] [카메라 검색] button
+logout link
+click map > 클릭 좌표 오버레이
+Click marker > 카메라 띄움
+
+9. welcomeuser.php
+[전체 카메라 열기] [전체 카메라 닫기] [카메라 검색] [카메라 추기] [카메라 삭제] [카메라 전체 삭제] button
+logout link
+click map > 클릭 좌표 오버레이
+Click marker > 카메라 띄움
+
+
+
+*************** 미구현 *************** ***************
+1. 오버레이로 띄울 카메라 리스트 데이터 베이스 생성
+2. 카메라 검색 동작 수정
+  - 검색한 카메라가 있어야 할 위치가 아닌 마지막으로 클릭한 마커 위치에 카메라가 띄워짐
+3. join 유효성검사
+4. user 일시 welcome.php 이동할수 없게해야함

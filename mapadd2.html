@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE> Add Camera </TITLE>
+<META NAME="LocationName" CONTENT="">
+<META NAME="LocationX" CONTENT="">
+<META NAME="LocationY" CONTENT="">
+
+</HEAD>
+<script>
+function submitToParent(){
+  var parent = window.opener;
+  var Lname = document.getElementById('LocationName').value;
+  var Lx = document.getElementById('LocationX').value;
+  var Ly = document.getElementById('LocationY').value;
+  parent.setcamera(Lname,Lx,Ly);              ///////////////////welcom.php의 setcamera실행
+//  parent.document.getElementById('CameraLocation').value = Lname;
+//  parent.document.getElementById('CameraX').value = Lx;
+//  alert(2);
+//  parent.document.getElementById('CameraY').value = Ly;
+//opener.document.all.navermapver.value = document.all.mapadd.value;
+window.close();
+}
+
+function init(){
+//받는값변수 = opener.document.forms.폼이름.필드이름.value
+ document.all.mapadd.value = opener.document.all.navermapver.value;  //= opener.document.forms.폼이름.필드이름.value
+}
+
+</script>
+<BODY onLoad="init();">
+<label for="LocationName">LocationName</label>
+<input type="text" name="LocationName" id="LocationName">
+<label for="LocationX">LocationX</label>
+<input type="text" name="LocationX" id="LocationX">
+<label for="LocationY">LocationY</label>
+<input type="text" name="LocationY" id="LocationY">
+<hr>
+<input type="button" value="Add Camera" onClick="submitToParent()">
+
+</BODY>
